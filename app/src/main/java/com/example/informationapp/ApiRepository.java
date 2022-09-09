@@ -15,13 +15,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ApiRepository {
-    String baseURL = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=6875a6037041f0fe5c4e5781f5c08b7e&text=cat&format=json&nojsoncallback=1";
     String apiKey, keyword;
+    String baseURL = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=6875a6037041f0fe5c4e5781f5c08b7e&text=cat&format=json&nojsoncallback=1";
+
     Context contexto;
     RequestQueue queue;
     ArrayList<InfoViewModel> photoInfo=new ArrayList<>();
+    InfoViewModel infoViewModel;
 
 
     public ApiRepository(Context context){
@@ -33,31 +36,27 @@ public class ApiRepository {
     private static final String TAG = "ApiRepository";
 
 
-    public void callApi(String baseUrl) {
+    public List<InfoViewModel> callApi(String baseUrl) {
         JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, baseURL, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        // display response
-                        try {
-                            Log.d(TAG, response.getString("photos"));
-                            Log.d(TAG, response.optJSONArray("photo").getJSONArray(0).toString());;
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        try {
+                        // display respons
 
-                            JSONArray jsonArray = response.getJSONArray("photos");
-//                            JSONArray photos=jsonArray.getJSONArray(0);
-                            Log.d(TAG, String.valueOf(jsonArray));
-                            for(int i=0;i<jsonArray.length();i++) {
-                                JSONObject jsonObject = jsonArray.getJSONObject(i);
-//                                Log.d(TAG, "onResponse: "+jsonObject.getString("photo"));
+                        try{
+                            JSONObject jsonObject=response.getJSONObject("photos");
+                            JSONArray jsonArray=jsonObject.getJSONArray("photo");
+                            for (int i=0;i<jsonArray.length();i++){
+                                JSONObject object=jsonArray.getJSONObject(i);
+//                                Log.d("res",object.toString());
+                                infoViewModel=new InfoViewModel(object.getString("farm"),object.getString("server"),object.getString("id"),object.getString("secret"));
+                                photoInfo.add(infoViewModel);
                             }
-//                                Log.d(TAG, "onResponse: array" + jsonArray);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+
+                        }catch (Exception e){
+
                         }
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -69,5 +68,8 @@ public class ApiRepository {
         );
 
         queue.add(getRequest);
+
+        return photoInfo;
     }
+
 }

@@ -53,4 +53,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/api_keyET" />
 
+    <EditText
+        android:id="@+id/keywordET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="72dp"
+        android:ems="10"
+        android:hint="Enter the keyword"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/api_keyET" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

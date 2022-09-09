@@ -1,39 +1,39 @@
 package com.example.informationapp;
 
 public class InfoViewModel {
-    int farmId;
-    int serverId;
-    int id;
+    String farmId;
+    String serverId;
+    String id;
     String secret;
 
-    public InfoViewModel(int farmId, int serverId, int id, String secret) {
+    public InfoViewModel(String farmId, String serverId, String id, String secret) {
         this.farmId = farmId;
         this.serverId = serverId;
         this.id = id;
         this.secret = secret;
     }
 
-    public int getFarmId() {
+    public String getFarmId() {
         return farmId;
     }
 
-    public void setFarmId(int farmId) {
+    public void setFarmId(String farmId) {
         this.farmId = farmId;
     }
 
-    public int getServerId() {
+    public String getServerId() {
         return serverId;
     }
 
-    public void setServerId(int serverId) {
+    public void setServerId(String serverId) {
         this.serverId = serverId;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
