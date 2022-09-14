@@ -16,6 +16,9 @@
         android:theme="@style/Theme.InformationApp"
         tools:targetApi="31">
         <activity
+            android:name=".DisplayActivity"
+            android:exported="false" />
+        <activity
             android:name=".ImageListActivity"
             android:exported="false" />
         <activity

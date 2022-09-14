@@ -1,6 +1,8 @@
 package com.example.informationapp;
 
-public class InfoViewModel {
+import java.io.Serializable;
+
+public class InfoViewModel implements Serializable {
     String farmId;
     String serverId;
     String id;

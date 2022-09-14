@@ -7,7 +7,7 @@
         android:id="@+id/imgView"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_marginBottom="5dp"
+        android:layout_margin="5dp"
         android:scaleType="centerCrop" />
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,14 +17,14 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
-        android:textColor="@color/white"
-        android:layout_below="@+id/imgView"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+<!--    <TextView-->
+<!--        android:id="@+id/tvTitle"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingBottom="16dp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:layout_below="@+id/imgView"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold" />-->
 
 </RelativeLayout>
